@@ -3,74 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Candy-Co Gallery</title>
+    <title>Image Background</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        body, html {
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            height: 100%;
+            overflow: hidden;
         }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            max-width: 1200px;
-            margin: 20px auto;
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.45;
+            background: url('path_to_your_first_image.jpg') top/cover no-repeat;
+            animation: scrollBackground 60s linear infinite;
         }
-        .gallery img {
-            width: 200px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s;
+        @keyframes scrollBackground {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 0% 100%; }
         }
-        .gallery img:hover {
-            transform: scale(1.1);
+        .content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            margin-top: 20%;
         }
     </style>
 </head>
 <body>
-    <h1>Gallery</h1>
-    <div class="gallery">
-        <img src="path/to/your/images/20240217_100044.jpg" alt="Image 1">
-        <img src="path/to/your/images/20240217_111053.jpg" alt="Image 2">
-        <img src="path/to/your/images/20240217_111058.jpg" alt="Image 3">
-        <img src="path/to/your/images/20240217_121349.jpg" alt="Image 4">
-        <img src="path/to/your/images/20240323_125624.jpg" alt="Image 5">
-        <img src="path/to/your/images/20240323_125650~2.jpg" alt="Image 6">
-        <img src="path/to/your/images/20240323_125658.jpg" alt="Image 7">
-        <img src="path/to/your/images/20240323_125704.jpg" alt="Image 8">
-        <img src="path/to/your/images/20240323_125725.jpg" alt="Image 9">
-        <img src="path/to/your/images/20240504-114040.jpg" alt="Image 10">
-        <img src="path/to/your/images/20240504_131607.jpg" alt="Image 11">
-        <img src="path/to/your/images/20240504_132053.jpg" alt="Image 12">
-        <img src="path/to/your/images/20240504_142518.jpg" alt="Image 13">
-        <img src="path/to/your/images/20240504_144228.jpg" alt="Image 14">
-        <img src="path/to/your/images/20240504_144235.jpg" alt="Image 15">
-        <img src="path/to/your/images/20240504_144405.jpg" alt="Image 16">
-        <img src="path/to/your/images/20240504_163445.jpg" alt="Image 17">
-        <img src="path/to/your/images/20240504_163449.jpg" alt="Image 18">
-        <img src="path/to/your/images/20240504_163511-1.jpg" alt="Image 19">
-        <img src="path/to/your/images/20240504_163511.jpg" alt="Image 20">
-        <img src="path/to/your/images/20240504_181454.jpg" alt="Image 21">
-        <img src="path/to/your/images/FB_IMG_16974687820.jpg" alt="Image 22">
-        <img src="path/to/your/images/IMG_20230818_10583.jpg" alt="Image 23">
-        <img src="path/to/your/images/IMG_20230818_12563.jpg" alt="Image 24">
-        <img src="path/to/your/images/IMG_20230818_14033.jpg" alt="Image 25">
-        <img src="path/to/your/images/IMG_20230818_14043.jpg" alt="Image 26">
-        <img src="path/to/your/images/IMG_20230915_10355.jpg" alt="Image 27">
-        <img src="path/to/your/images/IMG_20231012_10081.jpg" alt="Image 28">
-        <img src="path/to/your/images/IMG_20231012_10502.jpg" alt="Image 29">
-        <img src="path/to/your/images/IMG_20231021_14553.jpg" alt="Image 30">
-        <img src="path/to/your/images/IMG_20231021_15001.jpg" alt="Image 31">
-        <img src="path/to/your/images/IMG_20231021_15004.jpg" alt="Image 32">
-        <img src="path/to/your/images/IMG_20231021_15023.jpg" alt="Image 33">
-        <img src="path/to/your/images/IMG_20231021_15031.jpg" alt="Image 34">
+    <div class="background"></div>
+    <div class="content">
+        <h1>Welcome to Candy & Co</h1>
+        <p>Your Bridal Makeup and Hair Experts</p>
     </div>
+    <script>
+        const images = [
+            '20240217_100044.jpg',
+            '20240217_111053.jpg',
+            '20240217_111058.jpg',
+            '20240217_121349.jpg',
+            '20240323_125624.jpg',
+            '20240323_125650~2.jpg',
+            '20240323_125658.jpg',
+            '20240323_125704.jpg',
+            '20240323_125725.jpg',
+            '20240504-114040.jpg',
+            '20240504_131607.jpg',
+            '20240504_132053.jpg',
+            '20240504_142518.jpg',
+            '20240504_144228.jpg',
+            '20240504_144235.jpg',
+            '20240504_144405.jpg',
+            '20240504_163445.jpg',
+            '20240504_163449.jpg',
+            '20240504_163511-1.jpg',
+            '20240504_163511.jpg',
+            '20240504_181454.jpg',
+            'FB_IMG_16974687820.jpg',
+            'IMG_20230818_10583.jpg',
+            'IMG_20230818_12563.jpg',
+            'IMG_20230818_14033.jpg',
+            'IMG_20230818_14043.jpg',
+            'IMG_20230915_10355.jpg',
+            'IMG_20231012_10081.jpg',
+            'IMG_20231012_10502.jpg',
+            'IMG_20231021_14553.jpg',
+            'IMG_20231021_15001.jpg',
+            'IMG_20231021_15004.jpg',
+            'IMG_20231021_15023.jpg',
+            'IMG_20231021_15031.jpg'
+        ];
+
+        let currentIndex = 0;
+
+        function changeBackground() {
+            document.querySelector('.background').style.backgroundImage = `url(${images[currentIndex]})`;
+            currentIndex = (currentIndex + 1) % images.length;
+        }
+
+        setInterval(changeBackground, 60000); // Change image every 60 seconds
+    </script>
 </body>
 </html>
