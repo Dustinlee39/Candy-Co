@@ -158,4 +158,43 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/es6-promise/dist/es6-promise
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise/dist/es6-promisedocument.addEventListener('DOMContentLoaded', () => {
+    const CandyCo = (() => {
+        const reviews = [
+            {
+                text: "Couldn't be happier! Thank you, Candy & Co! I've never felt more beautiful and pampered. I looked flawless (but still like myself), and my hair and makeup lasted all night in the July heat.",
+                rating: 5
+            },
+            {
+                text: "Couldn't be happier. Everyone was incredibly happy with their hair and makeup, from the bridal party to the flower girls. Everything looked perfect even after all the crying / dancing / sweating.",
+                rating: 5
+            },
+            {
+                text: "Candace and team were great! Thank you to Candace and team for being flexible and delivering beautiful results! I received Candace’s name through a referral and so happy I went with her team for my wedding day!",
+                rating: 5
+            }
+        ];
+
+        const displayReviews = () => {
+            const reviewSection = document.querySelector('.reviews-section');
+            reviewSection.innerHTML = ''; // Clear previous content
+            reviews.forEach(review => {
+                const reviewDiv = document.createElement('div');
+                reviewDiv.classList.add('review');
+                reviewDiv.innerHTML = `
+                    <p>${review.text}</p>
+                    <span>${'⭐'.repeat(review.rating)}</span>
+                `;
+                reviewSection.appendChild(reviewDiv);
+            });
+        };
+
+        return {
+            init: () => {
+                displayReviews();
+            }
+        };
+    })();
+
+    CandyCo.init();
+});
