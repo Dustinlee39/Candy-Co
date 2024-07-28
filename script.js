@@ -1,42 +1,35 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Function to handle the scrolling effect
-    function startScrollingImages() {
-        const container = document.querySelector('.scrolling-images');
-        const images = [
-            'images/photo1.jpg',
-            'images/photo2.jpg',
-            // Add more images as needed
-        ];
+// script.js
 
-        // Create and append image elements
-        images.forEach(src => {
-            const img = document.createElement('img');
-            img.src = src;
-            img.alt = 'Scrolling Image';
-            container.appendChild(img);
+document.addEventListener('DOMContentLoaded', () => {
+    // Set opacity of the content overlay
+    const overlay = document.querySelector('.content-overlay');
+    overlay.style.opacity = '0.67'; // 66% opacity
+
+    // Set video visibility
+    const video = document.querySelector('.background-video');
+    video.style.opacity = '0'; // Make video invisible
+
+    // Function to handle gallery image transitions (if needed)
+    const handleGalleryTransitions = () => {
+        const galleryImages = document.querySelectorAll('.gallery-container img');
+        let currentIndex = 0;
+        
+        const showNextImage = () => {
+            galleryImages[currentIndex].style.opacity = '0';
+            currentIndex = (currentIndex + 1) % galleryImages.length;
+            galleryImages[currentIndex].style.opacity = '1';
+        };
+
+        galleryImages.forEach((img, index) => {
+            img.style.transition = 'opacity 1s ease-in-out';
+            if (index !== 0) {
+                img.style.opacity = '0';
+            }
         });
 
-        // Ensure the container has enough height to accommodate scrolling
-        const imageCount = images.length;
-        container.style.height = `${imageCount * 100}vh`;
-    }
+        setInterval(showNextImage, 3000); // Change image every 3 seconds
+    };
 
-    // Function to handle opacity changes for the overlay
-    function setOverlayOpacity() {
-        const overlay = document.querySelector('.content-overlay');
-        overlay.style.opacity = '0.67'; // Set to 66% opacity
-    }
-
-    // Function to handle video visibility
-    function setVideoVisibility() {
-        const video = document.querySelector('.background-video');
-        video.style.opacity = '0'; // Make video invisible
-    }
-
-    // Start scrolling images
-    startScrollingImages();
-
-    // Set overlay opacity and video visibility
-    setOverlayOpacity();
-    setVideoVisibility();
+    // Initialize gallery transitions
+    handleGalleryTransitions();
 });
