@@ -5,18 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Candy & Co</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <body>
-    <div class="reviews-section"></div>
-    <div class="faqs-section"></div>
-    <form id="booking-form">
-        <input type="text" id="date" placeholder="Select Date">
-        <select id="time">
-            <option value="" disabled selected>Select a time</option>
-        </select>
-    </form>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#faqs">FAQs</a></li>
+                <li><a href="#booking">Booking</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="reviews" class="reviews-section">
+            <h2>Reviews</h2>
+            <!-- Reviews will be injected here -->
+        </section>
+        <section id="faqs" class="faqs-section">
+            <h2>FAQs</h2>
+            <!-- FAQs will be injected here -->
+        </section>
+        <section id="booking">
+            <h2>Booking</h2>
+            <form>
+                <label for="date">Select Date:</label>
+                <input type="text" id="date" name="date">
+                <label for="time">Select Time:</label>
+                <select id="time" name="time">
+                    <option value="" disabled selected>Select a time</option>
+                </select>
+            </form>
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
