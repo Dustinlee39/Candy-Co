@@ -14,9 +14,28 @@ body, html {
     padding: 0;
     box-sizing: border-box;
     height: 100%;
-    overflow: hidden;
+    overflow: auto; /* Allow the main content to scroll */
     background-color: var(--background-color);
     color: var(--text-color);
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.45;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: scrollBackground 60s linear infinite;
+}
+
+@keyframes scrollBackground {
+    0% { background-position: center top; }
+    100% { background-position: center bottom; }
 }
 
 .container {
@@ -260,24 +279,4 @@ footer {
 :focus {
     outline: 3px solid var(--primary-color);
     outline-offset: 2px;
-}
-
-/* Custom styles for scrolling background */
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 0.45;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    animation: scrollBackground 60s linear infinite;
-}
-
-@keyframes scrollBackground {
-    0% { background-position: center top; }
-    100% { background-position: center bottom; }
 }
