@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Candy & Co</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
     <header role="banner">
@@ -21,7 +20,6 @@
                         <li><a href="#reviews" tabindex="0">Reviews</a></li>
                         <li><a href="#faqs" tabindex="0">FAQs</a></li>
                         <li><a href="#contact" tabindex="0">Contact</a></li>
-                        <li><a href="booking.html" tabindex="0">Book Appointment</a></li>
                     </ul>
                 </nav>
             </div>
@@ -139,43 +137,8 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/es6-promise/dist/es6-promisedocument.addEventListener('DOMContentLoaded', () => {
-    const CandyCo = (() => {
-        const reviews = [
-            {
-                text: "Couldn't be happier! Thank you, Candy & Co! I've never felt more beautiful and pampered. I looked flawless (but still like myself), and my hair and makeup lasted all night in the July heat.",
-                rating: 5
-            },
-            {
-                text: "Couldn't be happier. Everyone was incredibly happy with their hair and makeup, from the bridal party to the flower girls. Everything looked perfect even after all the crying / dancing / sweating.",
-                rating: 5
-            },
-            {
-                text: "Candace and team were great! Thank you to Candace and team for being flexible and delivering beautiful results! I received Candace’s name through a referral and so happy I went with her team for my wedding day!",
-                rating: 5
-            }
-        ];
-
-        const displayReviews = () => {
-            const reviewSection = document.querySelector('.reviews-section');
-            reviewSection.innerHTML = ''; // Clear previous content
-            reviews.forEach(review => {
-                const reviewDiv = document.createElement('div');
-                reviewDiv.classList.add('review');
-                reviewDiv.innerHTML = `
-                    <p>${review.text}</p>
-                    <span>${'⭐'.repeat(review.rating)}</span>
-                `;
-                reviewSection.appendChild(reviewDiv);
-            });
-        };
-
-        return {
-            init: () => {
-                displayReviews();
-            }
-        };
-    })();
-
-    CandyCo.init();
-});
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise/dist/es6-promise.auto.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/3.0.0/fetch.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
