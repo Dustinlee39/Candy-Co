@@ -1,15 +1,15 @@
 const CandyCo = (() => {
     const reviews = [
         {
-            text: "Candy & Co is fantastic! They made me look beautiful on my wedding day!",
+            text: "Couldn't be happier! Thank you, Candy & Co! I've never felt more beautiful and pampered. I looked flawless (but still like myself), and my hair and makeup lasted all night in the July heat.",
             rating: 5
         },
         {
-            text: "The best makeup service I've ever used. Highly recommended!",
+            text: "Couldn't be happier. Everyone was incredibly happy with their hair and makeup, from the bridal party to the flower girls. Everything looked perfect even after all the crying / dancing / sweating.",
             rating: 5
         },
         {
-            text: "Amazing experience! The team was professional and made my day special.",
+            text: "Candace and team were great! Thank you to Candace and team for being flexible and delivering beautiful results! I received Candace’s name through a referral and so happy I went with her team for my wedding day!",
             rating: 5
         }
         // Add more reviews as needed
@@ -22,7 +22,7 @@ const CandyCo = (() => {
         },
         {
             question: "What is the price of trial service for blowouts for brides?",
-            answer: "$50"
+            answer: "$150"
         },
         {
             question: "What is the base price for blowouts for attendants/family members?",
