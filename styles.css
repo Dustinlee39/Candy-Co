@@ -8,34 +8,13 @@
     --font-family: 'Georgia', serif;
 }
 
-body, html {
+body {
     font-family: var(--font-family);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    height: 100%;
-    overflow: auto; /* Allow the main content to scroll */
     background-color: var(--background-color);
     color: var(--text-color);
-}
-
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    opacity: 45%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    animation: scrollBackground 10s linear infinite;
-}
-
-@keyframes scrollBackground {
-    0% { background-position: center top; }
-    100% { background-position: center bottom; }
 }
 
 .container {
@@ -166,7 +145,7 @@ ul li {
 
 .contact-info p {
     margin: 5px 0;
-    font-family: var(--font-family);
+    font-family: var (--font-family);
     font-size: 1em;
 }
 
