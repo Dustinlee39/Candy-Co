@@ -1,23 +1,75 @@
-/* Root Variables */
-:root {
-    --primary-color: #e67e22;
-    --secondary-color: #333;
-    --background-color: #f8f8f8;
-    --text-color: #333;
-    --button-bg-color: var(--primary-color);
-    --button-hover-bg-color: #d35400;
-    --font-family: 'Georgia', serif;
+/* General styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    overflow: hidden;
 }
 
-/* Base Styles */
-body {
-    font-family: var(--font-family);
+/* Greeting Section */
+.greeting {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    color: #fff;
+}
+
+.greeting h1 {
+    font-size: 3rem;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    overflow: hidden; /* Hide scrollbars */
+}
+
+.greeting p {
+    font-size: 1.5rem;
+}
+
+/* Gallery Section */
+.gallery {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.gallery h2 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.gallery-container img {
+    width: 200px;
+    height: auto;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.gallery-container img:hover {
+    transform: scale(1.05);
+}
+
+/* Content Overlay */
+.content-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.67); /* 66% opacity */
+    z-index: 5;
 }
 
 /* Background Video */
@@ -27,59 +79,6 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0; /* Make video invisible */
-    z-index: -1;
-    pointer-events: none;
-}
-
-/* Scrolling Images */
-.scrolling-images {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -2; /* Place behind the video */
-    animation: scrollUp 303s linear infinite;
-}
-
-.scrolling-images img {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    top: 0;
-    left: 0;
-}
-
-@keyframes scrollUp {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-100%); }
-}
-
-/* Content Overlay */
-.content-overlay {
-    position: relative;
-    opacity: 0.67; /* 66% opacity */
+    object-fit: cover;
     z-index: 1;
-    padding: 20px;
-}
-
-/* Your existing styles */
-header {
-    /* Header styles */
-}
-
-main {
-    /* Main content styles */
-}
-
-footer {
-    /* Footer styles */
-}
-
-/* Ensure functionality and accessibility */
-:focus {
-    outline: 3px solid var(--primary-color);
-    outline-offset: 2px;
 }
