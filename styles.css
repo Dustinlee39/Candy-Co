@@ -145,7 +145,7 @@ ul li {
 
 .contact-info p {
     margin: 5px 0;
-    font-family: var(--font-family);
+    font-family: var (--font-family);
     font-size: 1em;
 }
 
