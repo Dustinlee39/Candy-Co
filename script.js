@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (e.key === 'Tab') {
                     const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
                     const firstFocusableElement = document.querySelectorAll(focusableElements)[0];
-                    const focusableContent = documentquerySelectorAll(focusableElements);
+                    const focusableContent = document.querySelectorAll(focusableElements);
                     const lastFocusableElement = focusableContent[focusableContent.length - 1];
 
                     if (e.shiftKey) { // Shift + Tab
