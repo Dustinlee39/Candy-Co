@@ -2,143 +2,327 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Candy & Co</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Candy & Co. - Beauty and Style">
+    <title>Candy & Co.</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+    <style>
+        :root {
+            --primary-color: #d63b8f;
+            --secondary-color: #4b0082;
+            --button-bg-color: #d63b8f;
+            --button-hover-bg-color: #c72c6c;
+            --text-color: #333;
+            --font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/hero-image.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 150px 20px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        .hero-content p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .cta-button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: var(--button-bg-color);
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--button-hover-bg-color);
+            transform: scale(1.05);
+        }
+
+        section {
+            padding: 20px 0;
+            background-color: #fff;
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            color: var(--primary-color);
+            font-family: var(--font-family);
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        section p, section ul {
+            font-family: var(--font-family);
+            font-size: 1em;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: #f0f0f0;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .review, .faq {
+            background: #f9f9f9;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .review span, .faq h3 {
+            color: var(--primary-color);
+            font-size: 1.2em;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+            font-family: var(--font-family);
+            font-size: 1em;
+        }
+
+        #map iframe {
+            max-width: 100%;
+            height: auto;
+            border: 0;
+            width: 100%;
+            height: 300px;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin-right: 20px;
+        }
+
+        .footer-links ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-media a {
+            margin-right: 10px;
+        }
+
+        .social-media img {
+            height: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .header-container, .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .cta-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2em;
+            }
+
+            .hero-content p {
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 100px 10px;
+            }
+
+            .cta-button {
+                font-size: 0.9em;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8em;
+            }
+
+            .hero-content p {
+                font-size: 0.9em;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+
+        :focus {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 <body>
-    <header role="banner">
-        <div class="container">
-            <div class="header-container">
-                <div class="logo">
-                    <img src="images/logo.png" alt="Candy & Co Logo" loading="lazy" tabindex="0">
-                </div>
-                <nav role="navigation">
-                    <ul>
-                        <li><a href="#about" tabindex="0">About</a></li>
-                        <li><a href="#services" tabindex="0">Services</a></li>
-                        <li><a href="#reviews" tabindex="0">Reviews</a></li>
-                        <li><a href="#faqs" tabindex="0">FAQs</a></li>
-                        <li><a href="#contact" tabindex="0">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
+    <header>
+        <div class="header-container">
+            <div class="logo">Candy & Co.</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#subscriptions">Subscriptions</a></li>
+                    <li><a href="#donations">Donations</a></li>
+                    <li><a href="#surveys">Surveys</a></li>
+                    <li><a href="#behind-the-scenes">Behind the Scenes</a></li>
+                    <li><a href="#featured-content">Featured Content</a></li>
+                    <li><a href="#social-media">Social Media</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main role="main" class="container">
-        <section id="hero" class="hero-section" aria-labelledby="hero-heading">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 id="hero-heading" tabindex="0">Candy & Co</h1>
-                    <p tabindex="0">Your Bridal Makeup and Hair Experts</p>
-                    <a href="#about" class="cta-button" role="button" aria-label="Learn More about Candy & Co" tabindex="0">Learn More</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="about-section" aria-labelledby="about-heading">
-            <div class="about-content">
-                <h2 id="about-heading">About Candy & Co</h2>
-                <p>Candy & Co is a bridal makeup and hair company serving New York, California, Austin, and select cities in Florida. Candace and her team have been in the beauty industry for over 15 years and are passionate about making brides look and feel elegant. We have expert knowledge of beauty products and utilize the latest tips and tricks for makeup application and hairstyles. We will bring out your most natural qualities, making you glow on your special day.</p>
-            </div>
-        </section>
-
-        <section id="services" class="services-section" aria-labelledby="services-heading">
-            <h2 id="services-heading">Services Offered</h2>
-            <ul>
-                <li>Consultations</li>
-                <li>Hair</li>
-                <li>Makeup</li>
-                <li>Men's grooming</li>
-                <li>Blowouts</li>
-                <li>Hair trial</li>
-                <li>On-site hair/makeup</li>
-                <li>Textured styling</li>
-                <li>Updos/styling</li>
-                <li>Airbrush makeup</li>
-                <li>Contour makeup</li>
-                <li>Eye makeup</li>
-                <li>Fake lashes</li>
-                <li>Makeup trial</li>
-                <li>Natural makeup</li>
-                <li>Tattoo coverage</li>
-                <li>100 maximum group size</li>
-            </ul>
-        </section>
-
-        <section id="reviews" class="reviews-section" aria-labelledby="reviews-heading">
-            <h2 id="reviews-heading">Reviews</h2>
-            <div class="review">
-                <p>"Couldn't be happier! Thank you, Candy & Co! I've never felt more beautiful and pampered. I looked flawless (but still like myself), and my hair and makeup lasted all night in the July heat."</p>
-                <span>⭐⭐⭐⭐⭐</span>
-            </div>
-            <div class="review">
-                <p>"Couldn't be happier. Everyone was incredibly happy with their hair and makeup, from the bridal party to the flower girls. Everything looked perfect even after all the crying / dancing / sweating."</p>
-                <span>⭐⭐⭐⭐⭐</span>
-            </div>
-            <div class="review">
-                <p>"Candace and team were great! Thank you to Candace and team for being flexible and delivering beautiful results! I received Candace’s name through a referral and so happy I went with her team for my wedding day!"</p>
-                <span>⭐⭐⭐⭐⭐</span>
-            </div>
-            <!-- Add more reviews as needed -->
-        </section>
-
-        <section id="faqs" class="faqs-section" aria-labelledby="faqs-heading">
-            <h2 id="faqs-heading">Frequently Asked Questions</h2>
-            <div class="faq">
-                <h3>What is the base price for blowouts for brides?</h3>
-                <p>$150</p>
-            </div>
-            <div class="faq">
-                <h3>What is the price of trial service for blowouts for brides?</h3>
-                <p>$150</p>
-            </div>
-            <div class="faq">
-                <h3>What is the base price for blowouts for attendants/family members?</h3>
-                <p>$100</p>
-            </div>
-            <div class="faq">
-                <h3>What is the price of trial service for blowouts for attendants/family members?</h3>
-                <p>$100</p>
-            </div>
-            <!-- Add more FAQs as needed -->
-        </section>
-
-        <section id="contact" class="contact-section" aria-labelledby="contact-heading">
-            <h2 id="contact-heading">Contact Us</h2>
-            <div class="contact-info">
-                <p><strong>Location:</strong> 1234 Bridal Lane, Destin, FL</p>
-                <p><strong>Email:</strong> contact@candyco.com</p>
-                <p><strong>Phone:</strong> (123) 456-7890</p>
-            </div>
-            <div id="map">
-                <!-- Embed a Google Map iframe here -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0234525034786!2d144.95605431531754!3d-37.812143979751846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f1d22f0d%3A0x5045675218ce6e0!2sEnvato!5e0!3m2!1sen!2sau!4v1425455175136" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </section>
-    </main>
-
-    <footer role="contentinfo">
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-links">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">FAQs</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="social-media">
-                    <a href="#"><img src="images/facebook-icon.png" alt="Facebook" loading="lazy"></a>
-                    <a href="#"><img src="images/instagram-icon.png" alt="Instagram" loading="lazy"></a>
-                </div>
-            </div>
+    <section class="hero-section" id="home">
+        <div class="hero-content">
+            <h1>Welcome to Candy & Co.</h1>
+            <p>Your destination for beauty and style</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
         </div>
-    </footer>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/es6-promise/dist/es6-promise.auto.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/3.0.0/fetch.min.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+    <section class="reviews-section">
+        <h2>What Our Clients Are Saying</h2>
+        <!-- Reviews will be dynamically added here -->
+    </section>
+
+    <section class="faqs-section">
+        <h2>Frequently Asked Questions</h2>
+        <!-- FAQs will be dynamically added here -->
+    </section>
+
+    <section class="contact-info" id="contact">
+        <h2>Contact Us</h2>
+        <p>Address: 123 Beauty Lane, Style City, SC 12345</p>
+        <p>Email: info@candyco.com</p>
+        <p>Phone: (123) 456-7890</p>
+        <div id="map">
+            <iframe src="https://www.google.com/maps/embed?pb=..." allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a
