@@ -13,7 +13,7 @@
 .dynamic-text {
     font-size: 36px; /* Larger font size */
     font-weight: bold; /* Bold text */
-    color: #blue; /* pink text */
+    color: #ffffff; /* pink text */
     background: linear-gradient(90deg, #ff0000, #0000ff); /* Gradient background */
     -webkit-background-clip: text; /* Clip background to text */
     -webkit-text-fill-color: transparent; /* Transparent text fill */
