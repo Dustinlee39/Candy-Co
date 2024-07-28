@@ -20,12 +20,14 @@
             height: 100%;
             z-index: -1;
             opacity: 0.45;
-            background: url('path_to_your_first_image.jpg') top/cover no-repeat;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
             animation: scrollBackground 60s linear infinite;
         }
         @keyframes scrollBackground {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 0% 100%; }
+            0% { background-position: center top; }
+            100% { background-position: center bottom; }
         }
         .content {
             position: relative;
