@@ -7,34 +7,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Video Embed (Invisible) -->
-    <iframe src="https://www.youtube.com/embed/450p7goxZqg?autoplay=1&loop=1&playlist=450p7goxZqg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="background-video"></iframe>
+    <!-- Greeting Section -->
+    <section class="greeting">
+        <h1>Welcome to Candy & Co!</h1>
+        <p>Experience beauty and elegance like never before.</p>
+    </section>
 
-    <!-- Scrolling Images Container -->
-    <div class="scrolling-images">
-        <!-- Ensure images are loaded correctly from images.html -->
-        <!-- Example: -->
-        <img src="images/photo1.jpg" alt="Photo 1">
-        <img src="images/photo2.jpg" alt="Photo 2">
-        <!-- Add more images as needed -->
-    </div>
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-container">
+            <img src="images/photo1.jpg" alt="Gallery Image 1">
+            <img src="images/photo2.jpg" alt="Gallery Image 2">
+            <!-- Add more images as needed -->
+        </div>
+    </section>
 
-    <!-- Main Content Overlay -->
-    <div class="content-overlay">
-        <header>
-            <div class="header-container">
-                <!-- Your header content -->
-            </div>
-        </header>
-        
-        <main>
-            <!-- Your main content -->
-        </main>
+    <!-- Content Overlay -->
+    <div class="content-overlay"></div>
 
-        <footer>
-            <!-- Your footer content -->
-        </footer>
-    </div>
+    <!-- Background Video -->
+    <video class="background-video" autoplay muted loop>
+        <source src="path/to/your/video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
     <script src="script.js"></script>
 </body>
