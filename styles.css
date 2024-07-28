@@ -18,7 +18,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 0;
     background-color: #fff;
     border-bottom: 2px solid #e67e22;
 }
@@ -59,13 +59,18 @@ nav ul li a:hover {
     padding: 150px 20px;
 }
 
+.hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .hero-content h1 {
     margin: 0;
-    font-size: 3em;
+    font-size: 2.5em;
 }
 
 .hero-content p {
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin: 20px 0;
 }
 
@@ -84,65 +89,46 @@ nav ul li a:hover {
     background-color: #d35400;
 }
 
-.about-section, .services-section, .reviews-section, .faqs-section, .contact-section {
-    padding: 20px;
+section {
+    padding: 20px 0;
     background-color: #fff;
     margin-bottom: 20px;
-    background-image: url('images/pattern.png'); /* Add the pattern image to each section */
-    background-repeat: repeat;
 }
 
-.about-content, .services-content, .reviews-content, .faqs-content, .contact-content {
-    max-width: 800px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.about-section h1, .services-section h2, .reviews-section h2, .faqs-section h2, .contact-section h2 {
-    margin-top: 0;
+section h2 {
     color: #e67e22;
     font-family: 'Arial', sans-serif;
     font-size: 1.5em;
+    margin-bottom: 10px;
 }
 
-.services-section ul {
+section p, section ul {
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
+}
+
+ul {
     list-style: none;
     padding: 0;
 }
 
-.services-section ul li {
+ul li {
     background: #f0f0f0;
     margin: 5px 0;
     padding: 10px;
     border-radius: 5px;
-    font-family: 'Arial', sans-serif;
-    font-size: 1em;
 }
 
-.reviews-section .review {
+.review, .faq {
     background: #f9f9f9;
     margin: 10px 0;
     padding: 10px;
     border-radius: 5px;
-    font-family: 'Arial', sans-serif;
-    font-size: 1em;
 }
 
-.review span {
+.review span, .faq h3 {
     color: #e67e22;
     font-size: 1.2em;
-}
-
-.faq {
-    background: #f9f9f9;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-    font-family: 'Arial', sans-serif;
-    font-size: 1em;
 }
 
 .contact-info p {
@@ -162,6 +148,8 @@ footer {
 }
 
 .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
