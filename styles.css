@@ -98,6 +98,8 @@ nav ul li a:hover {
 .about-section h1, .services-section h2, .reviews-section h2, .faqs-section h2, .contact-section h2 {
     margin-top: 0;
     color: #e67e22;
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5em;
 }
 
 .services-section ul {
@@ -110,6 +112,8 @@ nav ul li a:hover {
     margin: 5px 0;
     padding: 10px;
     border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
 }
 
 .reviews-section .review {
@@ -117,6 +121,8 @@ nav ul li a:hover {
     margin: 10px 0;
     padding: 10px;
     border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
 }
 
 .review span {
@@ -129,10 +135,14 @@ nav ul li a:hover {
     margin: 10px 0;
     padding: 10px;
     border-radius: 5px;
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
 }
 
 .contact-info p {
     margin: 5px 0;
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
 }
 
 footer {
@@ -153,8 +163,6 @@ footer {
 }
 
 .footer-links ul {
-    list-style: none;
-    display: flex;.footer-links ul {
     list-style: none;
     display: flex;
     margin: 0;
