@@ -5,33 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Candy & Co</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Greeting Section -->
-    <section class="greeting">
-        <h1>Welcome to Candy & Co!</h1>
-        <p>Experience beauty and elegance like never before.</p>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery">
-        <h2>Gallery</h2>
-        <div class="gallery-container">
-            <img src="images/photo1.jpg" alt="Gallery Image 1">
-            <img src="images/photo2.jpg" alt="Gallery Image 2">
-            <!-- Add more images as needed -->
-        </div>
-    </section>
+    <!-- Video Overlay -->
+    <div class="video-container">
+        <video class="background-video" src="https://youtu.be/450p7goxZqg?si=UYRJL2B0RbXRh_4b" autoplay muted loop></video>
+    </div>
 
     <!-- Content Overlay -->
-    <div class="content-overlay"></div>
+    <div class="content-overlay">
+        <!-- Header -->
+        <header>
+            <h1>Welcome to Candy & Co</h1>
+            <p>Your Perfect Beauty Experience Awaits</p>
+        </header>
 
-    <!-- Background Video -->
-    <video class="background-video" autoplay muted loop>
-        <source src="path/to/your/video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+        <!-- Gallery -->
+        <section class="gallery-section">
+            <h2>Our Gallery</h2>
+            <div class="gallery-container">
+                <!-- Images will be added here dynamically -->
+                <img src="path/to/image1.jpg" alt="Gallery Image 1">
+                <img src="path/to/image2.jpg" alt="Gallery Image 2">
+                <img src="path/to/image3.jpg" alt="Gallery Image 3">
+                <!-- Add more images as needed -->
+            </div>
+        </section>
 
-    <script src="script.js"></script>
+        <!-- Booking Form -->
+        <section class="booking-form">
+            <h2>Book Your Appointment</h2>
+            <form id="bookingForm">
+                <label for="date">Select Date:</label>
+                <input type="text" id="date" name="date" placeholder="Select a date">
+
+                <label for="time">Select Time:</label>
+                <select id="time" name="time">
+                    <option value="" disabled selected>Select a time</option>
+                </select>
+
+                <button type="submit">Book Now</button>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Candy & Co. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 </html>
