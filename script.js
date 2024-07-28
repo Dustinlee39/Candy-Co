@@ -1,18 +1,6 @@
 // script.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Set opacity of the content overlay
-    const overlay = document.querySelector('.content-overlay');
-    if (overlay) {
-        overlay.style.opacity = '0.67'; // 66% opacity
-    }
-
-    // Set video visibility
-    const video = document.querySelector('.background-video');
-    if (video) {
-        video.style.opacity = '0'; // Make video invisible
-    }
-
     // Initialize gallery
     const handleGalleryTransitions = () => {
         const galleryImages = document.querySelectorAll('.gallery-container img');
