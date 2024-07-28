@@ -35,23 +35,54 @@ const CandyCo = (() => {
         // Add more FAQs as needed
     ];
 
+    const createReviewElement = (review) => {
+        const reviewElement = document.createElement('div');
+        reviewElement.classList.add('review');
+        reviewElement.innerHTML = `<p>"${review.text}"</p><span>${'⭐'.repeat(review.rating)}</span>`;
+        return reviewElement;
+    };
+
+    const createFaqElement = (faq) => {
+        const faqElement = document.createElement('div');
+        faqElement.classList.add('faq');
+        faqElement.innerHTML = `<h3>${faq.question}</h3><p>${faq.answer}</p>`;
+        return faqElement;
+    };
+
     const renderReviews = () => {
         const reviewsContainer = document.querySelector('.reviews-section');
         reviews.forEach(review => {
-            const reviewElement = document.createElement('div');
-            reviewElement.classList.add('review');
-            reviewElement.innerHTML = `<p>"${review.text}"</p><span>${'⭐'.repeat(review.rating)}</span>`;
-            reviewsContainer.appendChild(reviewElement);
+            reviewsContainer.appendChild(createReviewElement(review));
         });
     };
 
     const renderFAQs = () => {
         const faqsContainer = document.querySelector('.faqs-section');
         faqs.forEach(faq => {
-            const faqElement = document.createElement('div');
-            faqElement.classList.add('faq');
-            faqElement.innerHTML = `<h3>${faq.question}</h3><p>${faq.answer}</p>`;
-            faqsContainer.appendChild(faqElement);
+            faqsContainer.appendChild(createFaqElement(faq));
+        });
+    };
+
+    const enableKeyboardNavigation = () => {
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+                const firstFocusableElement = document.querySelectorAll(focusableElements)[0];
+                const focusableContent = document.querySelectorAll(focusableElements);
+                const lastFocusableElement = focusableContent[focusableContent.length - 1];
+
+                if (e.shiftKey) { // Shift + Tab
+                    if (document.activeElement === firstFocusableElement) {
+                        lastFocusableElement.focus();
+                        e.preventDefault();
+                    }
+                } else { // Tab
+                    if (document.activeElement === lastFocusableElement) {
+                        firstFocusableElement.focus();
+                        e.preventDefault();
+                    }
+                }
+            }
         });
     };
 
@@ -59,6 +90,7 @@ const CandyCo = (() => {
         init: () => {
             renderReviews();
             renderFAQs();
+            enableKeyboardNavigation();
         }
     };
 })();
