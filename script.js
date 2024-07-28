@@ -1,107 +1,82 @@
-// script.js
+// JavaScript for handling various functionalities on the website
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize gallery
-    const handleGalleryTransitions = () => {
-        const galleryImages = document.querySelectorAll('.gallery-container img');
-        let currentIndex = 0;
-
-        const showNextImage = () => {
-            galleryImages[currentIndex].style.opacity = '0';
-            currentIndex = (currentIndex + 1) % galleryImages.length;
-            galleryImages[currentIndex].style.opacity = '1';
-        };
-
-        galleryImages.forEach((img, index) => {
-            img.style.transition = 'opacity 1s ease-in-out';
-            img.style.opacity = index === 0 ? '1' : '0';
-        });
-
-        setInterval(showNextImage, 3000); // Change image every 3 seconds
-    };
-
-    handleGalleryTransitions();
-
-    // Smooth scrolling
-    const enableSmoothScrolling = () => {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+// Example: Smooth scrolling for navigation links
+document.addEventListener('DOMContentLoaded', function() {
+    const smoothScrollLinks = document.querySelectorAll('nav ul li a[href^="#"]');
+    
+    smoothScrollLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth'
             });
         });
-    };
+    });
+});
 
-    enableSmoothScrolling();
-
-    // Keyboard navigation
-    const enableKeyboardNavigation = () => {
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Tab') {
-                const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-                const focusableContent = document.querySelectorAll(focusableElements);
-                const firstFocusableElement = focusableContent[0];
-                const lastFocusableElement = focusableContent[focusableContent.length - 1];
-
-                if (e.shiftKey) { // Shift + Tab
-                    if (document.activeElement === firstFocusableElement) {
-                        lastFocusableElement.focus();
-                        e.preventDefault();
-                    }
-                } else { // Tab
-                    if (document.activeElement === lastFocusableElement) {
-                        firstFocusableElement.focus();
-                        e.preventDefault();
-                    }
-                }
-            }
+// Example: Handling form submission (For contact form)
+const contactForm = document.querySelector('#contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Form submission logic here (e.g., using Fetch API or XMLHttpRequest)
+        const formData = new FormData(contactForm);
+        
+        fetch('/submit-form', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle success (e.g., show a success message)
+            alert('Thank you for contacting us! We will get back to you soon.');
+        })
+        .catch(error => {
+            // Handle error (e.g., show an error message)
+            console.error('There was a problem with the form submission:', error);
+            alert('There was an error submitting the form. Please try again later.');
         });
-    };
+    });
+}
 
-    enableKeyboardNavigation();
+// Example: Handling dynamic content for reviews section
+const reviewsSection = document.querySelector('#reviews');
+if (reviewsSection) {
+    const reviews = [
+        // Example review data
+        { name: 'John Doe', review: 'SEND ME INFO TO FILL IN' },
+        { name: 'Jane Smith', review: 'SEND ME INFO TO FILL IN' }
+    ];
+    
+    reviews.forEach(review => {
+        const reviewElement = document.createElement('div');
+        reviewElement.classList.add('review');
+        
+        reviewElement.innerHTML = `
+            <p>${review.review}</p>
+            <span>★★★★★</span>
+            <p>— ${review.name}</p>
+        `;
+        
+        reviewsSection.appendChild(reviewElement);
+    });
+}
 
-    // Booking form initialization
-    const fetchAvailableTimes = (date) => {
-        // Mock API call to fetch available times for the selected date
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve(["10:00 AM", "11:00 AM", "2:00 PM", "3:00 PM"]);
-            }, 1000);
-        });
-    };
-
-    const updateAvailableTimes = async (date) => {
-        const availableTimes = await fetchAvailableTimes(date);
-        const timeSelect = document.getElementById('time');
-        timeSelect.innerHTML = '<option value="" disabled selected>Select a time</option>';
-        availableTimes.forEach(time => {
-            const option = document.createElement('option');
-            option.value = time;
-            option.textContent = time;
-            timeSelect.appendChild(option);
-        });
-    };
-
-    const handleDateChange = (selectedDates, dateStr) => {
-        updateAvailableTimes(dateStr);
-    };
-
-    const initializeFlatpickr = () => {
-        flatpickr("#date", {
-            enableTime: false,
-            dateFormat: "Y-m-d",
-            minDate: "today",
-            disable: [
-                function(date) {
-                    return (date.getDay() === 0 || date.getDay() === 6); // Disable Saturdays and Sundays
-                }
-            ],
-            locale: "en",
-            onChange: handleDateChange
-        });
-    };
-
-    initializeFlatpickr();
+// Example: Toggle FAQ answers visibility
+const faqItems = document.querySelectorAll('#faqs .faq');
+faqItems.forEach(faq => {
+    const question = faq.querySelector('h3');
+    question.addEventListener('click', function() {
+        const answer = this.nextElementSibling;
+        if (answer.style.display === 'block') {
+            answer.style.display = 'none';
+        } else {
+            answer.style.display = 'block';
+        }
+    });
 });
