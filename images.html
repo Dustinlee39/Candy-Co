@@ -32,7 +32,6 @@
         .content {
             position: relative;
             z-index: 1;
-            color: white;
             text-align: center;
             margin-top: 20%;
         }
@@ -40,9 +39,28 @@
 </head>
 <body>
     <div class="background"></div>
-    <div class="content">
-        <h1>Welcome to Candy & Co</h1>
-        <p>Your Bridal Makeup and Hair Experts</p>
+    <div class="content container">
+        <header class="header-container">
+            <div class="logo">
+                <img src="path/to/logo.png" alt="Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Welcome to Candy & Co</h1>
+                <p>Your Bridal Makeup and Hair Experts</p>
+                <button class="cta-button">Get Started</button>
+            </div>
+        </section>
+        <!-- Add more content sections as needed -->
     </div>
     <script>
         const images = [
